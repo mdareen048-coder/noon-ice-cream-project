@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noon Minutes – The Ice Cream Project | Chipsy Shatta & Lemon</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --noon-yellow: #FEEE00;
+            --noon-black: #111111;
+            --shatta-red: #E63946;
+            --lemon-green: #B5E655;
+            --chip-gold: #F4A261;
+            --bg-light: #FFFDF9;
+            --card-bg: #FFFFFF;
+            --text-dark: #222222;
+            --gray-light: #F4F4F4;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Baloo 2', cursive;
+        }
+
+        /* STICKY NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--noon-yellow);
+            border-bottom: 3px solid var(--noon-black);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            z-index: 1000;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--noon-black);
+        }
+
+        .nav-brand span.logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            background: var(--noon-black);
+            color: var(--noon-yellow);
+            padding: 2px 10px;
+            border-radius: 6px;
+        }
+
+        .nav-brand span.project-sub {
+            font-family: 'Baloo 2', cursive;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--noon-black);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--noon-black);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--shatta-red);
+            transform: translateY(-2px);
+        }
+
+        .try-btn {
+            background: var(--noon-black);
+            color: var(--noon-yellow);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 800;
+            text-decoration: none;
+            border: 2px solid var(--noon-black);
+            transition: var(--transition);
+            box-shadow: 3px 3px 0px var(--shatta-red);
+        }
+
+        .try-btn:hover {
+            background: var(--shatta-red);
+            color: white;
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px var(--noon-black);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--noon-black);
+        }
+
+        /* HERO SECTION */
+        header.hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--noon-yellow) 0%, #FFF35C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 5% 60px 5%;
+            position: relative;
+            border-bottom: 4px solid var(--noon-black);
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            color: var(--noon-black);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 span {
+            color: var(--shatta-red);
+            text-shadow: 2px 2px 0px var(--noon-black);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .slang-badge {
+            display: inline-block;
+            background: var(--noon-black);
+            color: var(--noon-yellow);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            transform: rotate(-2deg);
+            box-shadow: 3px 3px 0px var(--shatta-red);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: var(--shatta-red);
+            color: white;
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.3rem;
+            font-weight: 800;
+            padding: 12px 35px;
+            border-radius: 40px;
+            border: 3px solid var(--noon-black);
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 4px 4px 0px var(--noon-black);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 7px 7px 0px var(--noon-black);
+            background: #d90429;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ice-cream-card-hero {
+            background: white;
+            border: 4px solid var(--noon-black);
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 12px 12px 0px var(--noon-black);
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(1deg); }
+            50% { transform: translateY(-15px) rotate(-1deg); }
+        }
+
+        .ice-cream-graphic {
+            font-size: 6rem;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .floating-sticker {
+            position: absolute;
+            background: var(--lemon-green);
+            border: 2px solid var(--noon-black);
+            padding: 8px 15px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            box-shadow: 3px 3px 0px var(--noon-black);
+            z-index: 3;
+        }
+
+        .sticker-1 { top: -20px; left: -20px; transform: rotate(-10deg); background: var(--lemon-green); }
+        .sticker-2 { bottom: 10px; right: -30px; transform: rotate(12deg); background: var(--shatta-red); color: white; }
+        .sticker-3 { top: 40%; left: -40px; transform: rotate(-5deg); background: var(--chip-gold); }
+
+        /* FLOATING BACKGROUND SHAPES */
+        .shape {
+            position: absolute;
+            opacity: 0.15;
+            z-index: 1;
+            pointer-events: none;
+            animation: spin 20s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* SECTION STYLING */
+        section {
+            padding: 90px 5%;
+            border-bottom: 4px solid var(--noon-black);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: var(--noon-black);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* THE FLAVOUR SECTION */
+        #flavour {
+            background: white;
+        }
+
+        .flavour-story {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            text-align: center;
+            font-size: 1.15rem;
+            background: #FFF9E6;
+            padding: 30px;
+            border: 3px solid var(--noon-black);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0px var(--noon-black);
+        }
+
+        .flavour-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .note-card {
+            background: var(--bg-light);
+            border: 3px solid var(--noon-black);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 6px 6px 0px var(--noon-black);
+            transition: var(--transition);
+        }
+
+        .note-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 10px 10px 0px var(--noon-black);
+        }
+
+        .note-card.shatta { background: #FFEEEE; }
+        .note-card.lemon { background: #F4FFEC; }
+        .note-card.chip { background: #FFF4E6; }
+
+        .note-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .note-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* COMBO BREAKDOWN SECTION */
+        #combo {
+            background: var(--noon-yellow);
+        }
+
+        .equation-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .eq-item {
+            background: white;
+            border: 3px solid var(--noon-black);
+            border-radius: 20px;
+            padding: 25px 20px;
+            text-align: center;
+            min-width: 160px;
+            box-shadow: 5px 5px 0px var(--noon-black);
+            animation: bounceIn 0.8s ease backwards;
+        }
+
+        .eq-item:nth-child(1) { animation-delay: 0.1s; }
+        .eq-item:nth-child(3) { animation-delay: 0.3s; }
+        .eq-item:nth-child(5) { animation-delay: 0.5s; }
+        .eq-item:nth-child(7) { animation-delay: 0.7s; }
+        .eq-item.result {
+            background: var(--noon-black);
+            color: var(--noon-yellow);
+            border-color: var(--noon-black);
+        }
+
+        .eq-symbol {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--noon-black);
+        }
+
+        .eq-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .eq-item h4 {
+            font-size: 1.2rem;
+        }
+
+        /* INTERACTIVE QUIZ */
+        #quiz {
+            background: white;
+        }
+
+        .quiz-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-light);
+            border: 4px solid var(--noon-black);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 10px 10px 0px var(--noon-black);
+            position: relative;
+        }
+
+        .quiz-progress-bar {
+            width: 100%;
+            height: 16px;
+            background: #E0E0E0;
+            border: 2px solid var(--noon-black);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-fill {
+            height: 100%;
+            background: var(--shatta-red);
+            width: 20%;
+            transition: width 0.4s ease;
+        }
+
+        .question-step h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--noon-black);
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .quiz-option {
+            background: white;
+            border: 3px solid var(--noon-black);
+            padding: 15px 20px;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-align: left;
+            box-shadow: 3px 3px 0px var(--noon-black);
+            transition: var(--transition);
+        }
+
+        .quiz-option:hover {
+            background: var(--noon-yellow);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px var(--noon-black);
+        }
+
+        .quiz-result {
+            text-align: center;
+            display: none;
+        }
+
+        .quiz-result h3 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--shatta-red);
+        }
+
+        .result-flavor-box {
+            background: #FFF9E6;
+            border: 3px solid var(--noon-black);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 5px 5px 0px var(--noon-black);
+        }
+
+        /* SHATTA DARE METER */
+        #dare-meter {
+            background: linear-gradient(135deg, #FFF0F0 0%, #FFE5E5 100%);
+        }
+
+        .meter-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: white;
+            border: 4px solid var(--noon-black);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 10px 10px 0px var(--noon-black);
+        }
+
+        .meter-face {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .meter-slider {
+            width: 100%;
+            margin: 30px 0;
+            accent-color: var(--shatta-red);
+            height: 12px;
+            cursor: pointer;
+        }
+
+        .meter-level-name {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--shatta-red);
+            margin-bottom: 10px;
+        }
+
+        .meter-desc {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #555;
+            min-height: 50px;
+        }
+
+        /* WOULD YOU TRY IT POLL */
+        #poll {
+            background: white;
+        }
+
+        .poll-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--bg-light);
+            border: 4px solid var(--noon-black);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 10px 10px 0px var(--noon-black);
+        }
+
+        .poll-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .poll-btn {
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.4rem;
+            font-weight: 800;
+            padding: 20px;
+            border: 3px solid var(--noon-black);
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 5px 5px 0px var(--noon-black);
+            transition: var(--transition);
+        }
+
+        .poll-btn.yes { background: var(--lemon-green); color: var(--noon-black); }
+        .poll-btn.no { background: var(--shatta-red); color: white; }
+
+        .poll-btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0px var(--noon-black);
+        }
+
+        .poll-results {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .poll-bar-container {
+            background: #E0E0E0;
+            border: 3px solid var(--noon-black);
+            height: 35px;
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            margin-bottom: 15px;
+            box-shadow: inset 0 3px 0 rgba(0,0,0,0.1);
+        }
+
+        .poll-bar-yes {
+            background: var(--lemon-green);
+            height: 100%;
+            width: 78%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--noon-black);
+            transition: width 1s ease;
+        }
+
+        .poll-bar-no {
+            background: var(--shatta-red);
+            height: 100%;
+            width: 22%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            color: white;
+            transition: width 1s ease;
+        }
+
+        /* OTHER FLAVOURS GRID */
+        #other-flavours {
+            background: var(--noon-yellow);
+        }
+
+        .flavours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .flavor-card {
+            background: white;
+            border: 3px solid var(--noon-black);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 6px 6px 0px var(--noon-black);
+            transition: var(--transition);
+        }
+
+        .flavor-card:hover {
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 10px 10px 0px var(--noon-black);
+            background: #FFFDF0;
+        }
+
+        .flavor-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .flavor-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--noon-black);
+        }
+
+        .flavor-card p {
+            font-size: 0.95rem;
+            color: #555;
+            font-weight: 600;
+        }
+
+        /* SOCIAL WALL / SHATTA FREEZE CHALLENGE */
+        #social-wall {
+            background: white;
+        }
+
+        .social-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+        }
+
+        .social-post-card {
+            background: var(--bg-light);
+            border: 3px solid var(--noon-black);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 6px 6px 0px var(--noon-black);
+            position: relative;
+        }
+
+        .illustrative-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #333;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .post-avatar {
+            width: 45px;
+            height: 45px;
+            background: var(--noon-yellow);
+            border: 2px solid var(--noon-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .post-user h4 {
+            font-size: 1rem;
+            line-height: 1.2;
+        }
+
+        .post-user span {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .post-body {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .post-media {
+            background: #FFE5E5;
+            border: 2px solid var(--noon-black);
+            border-radius: 12px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--shatta-red);
+        }
+
+        /* CTA BANNER */
+        #cta-banner {
+            background: var(--shatta-red);
+            color: white;
+            text-align: center;
+            padding: 80px 5%;
+            border-bottom: 4px solid var(--noon-black);
+        }
+
+        #cta-banner h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0px var(--noon-black);
+        }
+
+        #cta-banner p {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 35px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-noon-yellow {
+            background: var(--noon-yellow);
+            color: var(--noon-black);
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.4rem;
+            font-weight: 800;
+            padding: 15px 40px;
+            border-radius: 40px;
+            border: 3px solid var(--noon-black);
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 5px 5px 0px var(--noon-black);
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-noon-yellow:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0px var(--noon-black);
+            background: #fff;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--noon-black);
+            color: white;
+            padding: 60px 5% 40px 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-family: 'Baloo 2', cursive;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--noon-yellow);
+        }
+
+        .social-share-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .share-pill {
+            background: #222;
+            color: white;
+            border: 2px solid #444;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .share-pill:hover {
+            background: var(--noon-yellow);
+            color: var(--noon-black);
+            border-color: var(--noon-yellow);
+            transform: translateY(-2px);
+        }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            padding-top: 25px;
+            line-height: 1.5;
+        }
+
+        /* TOAST NOTIFICATION */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--noon-black);
+            color: var(--noon-yellow);
+            border: 2px solid var(--noon-yellow);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 800;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-cta {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--noon-yellow);
+                padding: 20px;
+                border-bottom: 4px solid var(--noon-black);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .equation-box {
+                flex-direction: column;
+            }
+            .eq-symbol {
+                transform: rotate(90deg);
+                margin: 5px 0;
+            }
+            .poll-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STICKY NAVBAR -->
+    <nav>
+        <a href="#" class="nav-brand">
+            <span class="logo-text">noon minutes</span>
+            <span class="project-sub">| The Ice Cream Project</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#flavour">The Flavour</a></li>
+            <li><a href="#combo">The Combo</a></li>
+            <li><a href="#quiz">Personality Quiz</a></li>
+            <li><a href="#dare-meter">Shatta Meter</a></li>
+            <li><a href="#other-flavours">Other Flavours</a></li>
+            <li><a href="#social-wall">#ShattaFreeze</a></li>
+            <li><a href="https://www.noon.com" target="_blank" class="try-btn">Try It on Noon</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="slang-badge">Ya3ni ice cream b Chipsy?! 🤯</span>
+                <h1>Spicy. Salty. Sour. <span>Frozen.</span></h1>
+                <p>Chipsy Shatta & Lemon – the ultimate Egyptian snack-dessert hybrid you didn't know you needed. Gamed awy!</p>
+                <div class="hero-cta">
+                    <a href="#flavour" class="btn-primary">
+                        <i class="fa-solid fa-fire"></i> Dare to Taste
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="ice-cream-card-hero">
+                    <div class="floating-sticker sticker-1">🌶️ Shatta Kick</div>
+                    <div class="floating-sticker sticker-2">🍋 Sour Twist</div>
+                    <div class="floating-sticker sticker-3">🥔 Salty Chip</div>
+                    <div class="ice-cream-graphic">🍨🔥</div>
+                    <h3 class="brand-font" style="font-size: 1.8rem;">Chipsy Shatta & Lemon</h3>
+                    <p style="font-size: 0.9rem; font-weight: 600; color: #666; margin-top: 5px;">Limited Edition Drop</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- THE FLAVOUR SECTION -->
+    <section id="flavour">
+        <h2 class="section-title">The Wildest Flavour Ever</h2>
+        <p class="section-subtitle">Egyptian street snack culture meets high-end dessert engineering. Unexpected? Absolutely. Delicious? Gamed awy.</p>
+        
+        <div class="flavour-story">
+            <p><strong>The Inspiration:</strong> We took Egypt's most iconic red packet of chips—Chipsy Shatta & Lemon—crushed them up into golden salty shards, and folded them into ultra-creamy sweet vanilla ice cream spiked with authentic Egyptian shatta heat and a sharp lemon zing. It's chaotic, it's bold, and your tastebuds will never be the same.</p>
+        </div>
+
+        <div class="flavour-cards-grid">
+            <div class="note-card shatta">
+                <div class="note-icon">🌶️</div>
+                <h3>Shatta Heat</h3>
+                <p>A spicy kick that starts smooth and sneaks up on you. Warm, bold, and unapologetically Egyptian.</p>
+            </div>
+            <div class="note-card lemon">
+                <div class="note-icon">🍋</div>
+                <h3>Lemon Zing</h3>
+                <p>Sharp citrus brightness that cuts through the creaminess and makes your mouth pucker in the best way possible.</p>
+            </div>
+            <div class="note-card chip">
+                <div class="note-icon">🥔</div>
+                <h3>Chip Crunch</h3>
+                <p>Real salty Chipsy potato crunch folded into every single scoop. Textural perfection!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE COMBO BREAKDOWN SECTION -->
+    <section id="combo">
+        <h2 class="section-title">The Equation of Chaos</h2>
+        <p class="section-subtitle">How did we get here? Simple math according to Noon Minutes.</p>
+
+        <div class="equation-box">
+            <div class="eq-item">
+                <div class="eq-icon">🥔</div>
+                <h4 class="brand-font">Chipsy</h4>
+                <p style="font-size: 0.85rem; font-weight: 600; color: #555;">Salty Crunch</p>
+            </div>
+            <div class="eq-symbol">+</div>
+            <div class="eq-item">
+                <div class="eq-icon">🌶️</div>
+                <h4 class="brand-font">Shatta</h4>
+                <p style="font-size: 0.85rem; font-weight: 600; color: #555;">Fiery Kick</p>
+            </div>
+            <div class="eq-symbol">+</div>
+            <div class="eq-item">
+                <div class="eq-icon">🍋</div>
+                <h4 class="brand-font">Lemon</h4>
+                <p style="font-size: 0.85rem; font-weight: 600; color: #555;">Sharp Zing</p>
+            </div>
+            <div class="eq-symbol">+</div>
+            <div class="eq-item">
+                <div class="eq-icon">🍨</div>
+                <h4 class="brand-font">Ice Cream</h4>
+                <p style="font-size: 0.85rem; font-weight: 600; color: #555;">Sweet Cream</p>
+            </div>
+            <div class="eq-symbol">=</div>
+            <div class="eq-item result">
+                <div class="eq-icon">🤯</div>
+                <h4 class="brand-font">Pure Magic</h4>
+                <p style="font-size: 0.85rem; font-weight: 600; color: var(--noon-yellow);">Ya3ni Gamed!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE QUIZ -->
+    <section id="quiz">
+        <h2 class="section-title">Personality Matcher</h2>
+        <p class="section-subtitle">Which Ice Cream Project flavour matches your chaotic energy?</p>
+
+        <div class="quiz-container">
+            <div id="quiz-question-area">
+                <div class="quiz-progress-bar">
+                    <div class="quiz-progress-fill" id="progressFill" style="width: 20%;"></div>
+                </div>
+                <div class="question-step">
+                    <h3 id="questionText">1. It's 2 AM on a weekend in Cairo. What is your go-to snack order?</h3>
+                    <div class="options-grid" id="optionsGrid">
+                        <!-- Options injected via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-result" id="quizResultArea">
+                <div class="meter-face">🎉</div>
+                <h3>Your Flavour Vibe Is:</h3>
+                <div class="result-flavor-box">
+                    <h2 id="resultFlavorName" class="brand-font" style="font-size: 2rem; color: var(--shatta-red);">Chipsy Shatta & Lemon</h2>
+                    <p id="resultFlavorDesc" style="font-weight: 600; margin-top: 10px; font-size: 1.1rem;">You thrive on chaos, love spicy memes, and never follow the rules. You're the main character!</p>
+                </div>
+                <button class="btn-primary" onclick="shareQuizResult()" style="margin: 10px auto;">
+                    <i class="fa-solid fa-share-nodes"></i> Share My Result
+                </button>
+                <br>
+                <button class="share-pill" onclick="resetQuiz()" style="background: #222; color: white; margin-top: 15px;">
+                    <i class="fa-solid fa-rotate-right"></i> Take Quiz Again
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- "THE SHATTA DARE METER" -->
+    <section id="dare-meter">
+        <h2 class="section-title">The Shatta Dare Meter</h2>
+        <p class="section-subtitle">Slide to test your spice tolerance before ordering.</p>
+
+        <div class="meter-container">
+            <div class="meter-face" id="meterFace">😎</div>
+            <div class="meter-level-name" id="meterName">Mild Mama</div>
+            <p class="meter-desc" id="meterDesc">"Ya 3am, easy! I like my ice cream sweet and calm."</p>
+            
+            <input type="range" min="1" max="4" value="2" class="meter-slider" id="spiceSlider" oninput="updateDareMeter(this.value)">
+            
+            <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 0.9rem; color: #777;">
+              <span>Mild Mama</span>
+              <span>Spicy Boss</span>
+              <span>Chaos King</span>
+              <span>Shatta Legend</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- "WOULD YOU TRY IT?" POLL -->
+    <section id="poll">
+        <h2 class="section-title">Would You Try It?</h2>
+        <p class="section-subtitle">Cast your vote and watch Egypt react live in real time!</p>
+
+        <div class="poll-container">
+            <h3 class="brand-font" style="font-size: 1.8rem; margin-bottom: 25px;">Chipsy Shatta & Lemon Ice Cream: Genius or Crime?</h3>
+            
+            <div class="poll-buttons" id="pollButtons">
+                <button class="poll-btn yes" onclick="votePoll('yes')">
+                    <i class="fa-solid fa-fire"></i> Yes, I'm brave 🔥
+                </button>
+                <button class="poll-btn no" onclick="votePoll('no')">
+                    <i class="fa-solid fa-face-grimace"></i> No, I'm scared 😭
+                </button>
+            </div>
+
+            <div class="poll-results" id="pollResults">
+                <p style="font-weight: 700; margin-bottom: 15px; font-size: 1.25rem;">Live Egyptian Vibe Check Results:</p>
+                <div class="poll-bar-container">
+                    <div class="poll-bar-yes" id="barYes" style="width: 78%;">78% Brave</div>
+                    <div class="poll-bar-no" id="barNo" style="width: 22%;">22% Scared</div>
+                </div>
+                <p style="font-size: 0.9rem; font-weight: 600; color: #666; margin-top: 15px;">Thanks for voting! You're officially part of The Ice Cream Project community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OTHER FLAVOURS SECTION -->
+    <section id="other-flavours">
+        <h2 class="section-title">The Rest of the Collection</h2>
+        <p class="section-subtitle">Explore the full lineup of The Ice Cream Project on Noon Minutes.</p>
+
+        <div class="flavours-grid">
+            <div class="flavor-card">
+                <div class="flavor-icon">🥤</div>
+                <h3>Pepsi Sorbet</h3>
+                <p>Fizzy, ultra-refreshing cola turned into a smooth, icy scoop.</p>
+            </div>
+            <div class="flavor-card">
+                <div class="flavor-icon">🍊</div>
+                <h3>Mirinda Orange Sorbet</h3>
+                <p>Bursting with bright citrus soda sunshine in every bite.</p>
+            </div>
+            <div class="flavor-card">
+                <div class="flavor-icon">🧊</div>
+                <h3>7UP Lime & Mint</h3>
+                <p>Mojito vibes without the drama. Crisp lime and cool mint.</p>
+            </div>
+            <div class="flavor-card">
+                <div class="flavor-icon">🥘</div>
+                <h3>Koshary-Inspired</h3>
+                <p>Sweet crispy fried onions and spiced caramel crunch. Wildly Egyptian.</p>
+            </div>
+            <div class="flavor-card">
+                <div class="flavor-icon">🟢</div>
+                <h3>Pistachio & Kunafa</h3>
+                <p>Rich buttery pistachio cream meets buttery golden kunafa shreds.</p>
+            </div>
+            <div class="flavor-card">
+                <div class="flavor-icon">🍪</div>
+                <h3>Cookies & Cream</h3>
+                <p>The crowd-pleasing classic loaded with massive chocolate cookie chunks.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL WALL -->
+    <section id="social-wall">
+        <div class="social-intro">
+            <h2 class="section-title">#ShattaFreezeChallenge</h2>
+            <p class="section-subtitle">Film your first-bite reaction, post it on TikTok or Instagram, and tag @noonminutes to get featured!</p>
+        </div>
+
+        <div class="social-grid">
+            <div class="social-post-card">
+                <span class="illustrative-badge">Illustrative example</span>
+                <div class="post-header">
+                    <div class="post-avatar">🔥</div>
+                    <div class="post-user">
+                        <h4>@karim_reviews</h4>
+                        <span>TikTok • 2 hours ago</span>
+                    </div>
+                </div>
+                <div class="post-media">😲🍦</div>
+                <div class="post-body">"Bro I thought this was a prank until the lemon hit me. 10/10 gamed awy! #ShattaFreezeChallenge"</div>
+                <div class="post-footer">
+                    <span><i class="fa-solid fa-heart" style="color: var(--shatta-red);"></i> 42.5K</span>
+                    <span><i class="fa-solid fa-comment"></i> 1,204</span>
+                </div>
+            </div>
+
+            <div class="social-post-card">
+                <span class="illustrative-badge">Illustrative example</span>
+                <div class="post-header">
+                    <div class="post-avatar">🍋</div>
+                    <div class="post-user">
+                        <h4>@habiba_eats</h4>
+                        <span>Instagram Reels • Yesterday</span>
+                    </div>
+                </div>
+                <div class="post-media">🌶️💥</div>
+                <div class="post-body">"Chipsy Shatta & Lemon ice cream is the exact chaotic energy Cairo needed right now. #ShattaFreezeChallenge"</div>
+                <div class="post-footer">
+                    <span><i class="fa-solid fa-heart" style="color: var(--shatta-red);"></i> 88.1K</span>
+                    <span><i class="fa-solid fa-comment"></i> 3,420</span>
+                </div>
+            </div>
+
+            <div class="social-post-card">
+                <span class="illustrative-badge">Illustrative example</span>
+                <div class="post-header">
+                    <div class="post-avatar">🥔</div>
+                    <div class="post-user">
+                        <h4>@ziad_snacks</h4>
+                        <span>TikTok • 3 days ago</span>
+                    </div>
+                </div>
+                <div class="post-media">🎉🧊</div>
+                <div class="post-body">"The crunch is real! Who else ordered this on Noon Minutes at 3 AM? #ShattaFreezeChallenge"</div>
+                <div class="post-footer">
+                    <span><i class="fa-solid fa-heart" style="color: var(--shatta-red);"></i> 19.3K</span>
+                    <span><i class="fa-solid fa-comment"></i> 540</span>
+                </div>
+            </div>
+
+            <div class="social-post-card">
+                <span class="illustrative-badge">Illustrative example</span>
+                <div class="post-header">
+                    <div class="post-avatar">✨</div>
+                    <div class="post-user">
+                        <h4>@cairo_foodies</h4>
+                        <span>Instagram • 4 days ago</span>
+                    </div>
+                </div>
+                <div class="post-media">🏆😋</div>
+                <div class="post-body">"We tested all 7 Ice Cream Project flavours and Chipsy Shatta & Lemon takes the crown for wildest taste! #ShattaFreezeChallenge"</div>
+                <div class="post-footer">
+                    <span><i class="fa-solid fa-heart" style="color: var(--shatta-red);"></i> 56.7K</span>
+                    <span><i class="fa-solid fa-comment"></i> 912</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <section id="cta-banner">
+        <h2>Brave enough?</h2>
+        <p>Get Chipsy Shatta & Lemon delivered straight to your door in minutes with Noon Minutes.</p>
+        <a href="https://www.noon.com" target="_blank" class="btn-noon-yellow">
+            <i class="fa-solid fa-bolt"></i> Find It on Noon Minutes
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">noon minutes | The Ice Cream Project</div>
+            <p style="font-size: 0.95rem; font-weight: 600; color: #ddd;">Share the chaos with your friends:</p>
+            
+            <div class="social-share-group">
+                <button class="share-pill" onclick="shareToWhatsApp()">
+                    <i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 1.2rem;"></i> WhatsApp
+                </button>
+                <button class="share-pill" onclick="shareToTwitter()">
+                    <i class="fa-brands fa-x-twitter" style="font-size: 1.2rem;"></i> X (Twitter)
+                </button>
+                <button class="share-pill" onclick="shareToFacebook()">
+                    <i class="fa-brands fa-facebook" style="color: #1877F2; font-size: 1.2rem;"></i> Facebook
+                </button>
+                <button class="share-pill" onclick="copyWebsiteLink()">
+                    <i class="fa-solid fa-link"></i> Copy Link
+                </button>
+                <button class="share-pill" onclick="nativeShare()">
+                    <i class="fa-solid fa-share-nodes"></i> Share...
+                </button>
+            </div>
+
+            <div class="disclaimer">
+                Student concept project – not an official Noon website. All content is illustrative. Created for Gen Z snack lovers in Egypt who appreciate creative digital experiences and playful flavour combinations.
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toastMessage">
+        <i class="fa-solid fa-circle-check" style="color: var(--lemon-green); font-size: 1.2rem;"></i>
+        <span id="toastText">Link copied to clipboard!</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // MOBILE HAMBURGER MENU TOGGLE
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // INTERACTIVE QUIZ LOGIC
+        const quizData = [
+            {
+                question: "1. It's 2 AM on a weekend in Cairo. What is your go-to snack order?",
+                options: [
+                    { text: "Spicy Chipsy and extra cheese", scoreFlavor: "Chipsy Shatta & Lemon" },
+                    { text: "Super cold Pepsi and a chocolate bar", scoreFlavor: "Pepsi Sorbet" },
+                    { text: "Fresh Kunafa with extra pistachios", scoreFlavor: "Pistachio & Kunafa" },
+                    { text: "Classic cookies and milk", scoreFlavor: "Cookies & Cream" }
+                ]
+            },
+            {
+                question: "2. How do you react when someone suggests a crazy idea?",
+                options: [
+                    { text: "Let's do it immediately! The crazier the better.", scoreFlavor: "Chipsy Shatta & Lemon" },
+                    { text: "I'll film the whole thing for TikTok.", scoreFlavor: "7UP Lime & Mint" },
+                    { text: "Only if food is involved.", scoreFlavor: "Koshary-Inspired" },
+                    { text: "I'll stick to my trusted favorites.", scoreFlavor: "Cookies & Cream" }
+                ]
+            },
+            {
+                question: "3. Choose your ultimate summer vibe:",
+                options: [
+                    { text: "Riding motorbikes in Dahab with loud music", scoreFlavor: "Chipsy Shatta & Lemon" },
+                    { text: "Chilling by a pool with an ice-cold soda", scoreFlavor: "Mirinda Orange Sorbet" },
+                    { text: "Cozy movie night at home with friends", scoreFlavor: "Cookies & Cream" },
+                    { text: "Exploring hidden food gems in Downtown Cairo", scoreFlavor: "Koshary-Inspired" }
+                ]
+            },
+            {
+                question: "4. What is your superpower?",
+                options: [
+                    { text: "Making spicy food look easy", scoreFlavor: "Chipsy Shatta & Lemon" },
+                    { text: "Staying calm when everything is chaotic", scoreFlavor: "Pepsi Sorbet" },
+                    { text: "Knowing every trending TikTok sound", scoreFlavor: "7UP Lime & Mint" },
+                    { text: "Baking the best desserts ever", scoreFlavor: "Pistachio & Kunafa" }
+                ]
+            },
+            {
+                question: "5. Pick a drink to survive a hot Cairo afternoon:",
+                options: [
+                    { text: "Ice-cold lemon mint with a shatta twist", scoreFlavor: "Chipsy Shatta & Lemon" },
+                    { text: "Super fizzy Mirinda Orange", scoreFlavor: "Mirinda Orange Sorbet" },
+                    { text: "Traditional Egyptian hibiscus (Karkadeh)", scoreFlavor: "Koshary-Inspired" },
+                    { text: "Iced Caramel Macchiato", scoreFlavor: "Cookies & Cream" }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let userAnswers = [];
+
+        function loadQuizQuestion() {
+            if (currentQuestion >= quizData.length) {
+                showQuizResult();
+                return;
+            }
+
+            const q = quizData[currentQuestion];
+            document.getElementById('questionText').innerText = q.question;
+            document.getElementById('progressFill').style.width = `${((currentQuestion + 1) / quizData.length) * 100}%`;
+
+            const optionsGrid = document.getElementById('optionsGrid');
+            optionsGrid.innerHTML = '';
+
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option';
+                btn.innerText = opt.text;
+                btn.onclick = () => selectQuizOption(opt.scoreFlavor);
+                optionsGrid.appendChild(btn);
+            });
+        }
+
+        function selectQuizOption(flavor) {
+            userAnswers.push(flavor);
+            currentQuestion++;
+            loadQuizQuestion();
+        }
+
+        function showQuizResult() {
+            document.getElementById('quiz-question-area').style.display = 'none';
+            document.getElementById('quizResultArea').style.display = 'block';
+
+            // Calculate most frequent flavor in answers
+            const counts = {};
+            userAnswers.forEach(f => counts[f] = (counts[f] || 0) + 1);
+            let topFlavor = "Chipsy Shatta & Lemon";
+            let maxCount = 0;
+            for (let f in counts) {
+                if (counts[f] > maxCount) {
+                    maxCount = counts[f];
+                    topFlavor = f;
+                }
+            }
+
+            document.getElementById('resultFlavorName').innerText = topFlavor;
+            
+            let desc = "You're chaotic, bold, and love standing out from the crowd!";
+            if (topFlavor.includes("Pepsi")) desc = "You're ultra-refreshing, energetic, and keep the party alive!";
+            else if (topFlavor.includes("Mirinda")) desc = "Bright, sunny, and full of bubbly optimism!";
+            else if (topFlavor.includes("7UP")) desc = "Cool, collected, and always ahead of the trends.";
+            else if (topFlavor.includes("Koshary")) desc = "Deeply rooted in Egyptian culture with a wildly fun twist.";
+            else if (topFlavor.includes("Pistachio")) desc = "Sophisticated yet down for a delicious treat anytime.";
+            else if (topFlavor.includes("Cookies")) desc = "The reliable favorite everyone loves to hang out with.";
+
+            document.getElementById('resultFlavorDesc').innerText = desc;
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            userAnswers = [];
+            document.getElementById('quizResultArea').style.display = 'none';
+            document.getElementById('quiz-question-area').style.display = 'block';
+            loadQuizQuestion();
+        }
+
+        // Initialize Quiz on load
+        loadQuizQuestion();
+
+        // SHATTA DARE METER LOGIC
+        const dareData = {
+            1: { face: "😊", name: "Mild Mama", desc: "Ya 3am, easy! I like my ice cream sweet and calm." },
+            2: { face: "🔥", name: "Spicy Boss", desc: "Okay! I can handle the shatta kick with a smile." },
+            3: { face: "🤯", name: "Chaos King", desc: "Bring on the chips, shatta, and lemon! Gamed awy!" },
+            4: { face: "🐉", name: "Shatta Legend", desc: "Absolute beast mode. You eat raw shatta for breakfast!" }
+        };
+
+        function updateDareMeter(val) {
+            const data = dareData[val];
+            document.getElementById('meterFace').innerText = data.face;
+            document.getElementById('meterName').innerText = data.name;
+            document.getElementById('meterDesc').innerText = `"${data.desc}"`;
+        }
+
+        // POLL LOGIC
+        let voted = false;
+        function votePoll(choice) {
+            if (voted) return;
+            voted = true;
+
+            document.getElementById('pollButtons').style.display = 'none';
+            document.getElementById('pollResults').style.display = 'block';
+
+            showToast("Vote recorded successfully! Shukran!");
+        }
+
+        // TOAST HELPER
+        function showToast(text) {
+            const toast = document.getElementById('toastMessage');
+            document.getElementById('toastText').innerText = text;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // SOCIAL SHARING FUNCTIONS
+        const shareUrl = window.location.href;
+        const shareText = "Check out Chipsy Shatta & Lemon ice cream on Noon Minutes! Ya3ni ice cream b Chipsy?! #ShattaFreezeChallenge";
+
+        function shareToWhatsApp() {
+            const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + " " + shareUrl)}`;
+            window.open(url, '_blank');
+        }
+
+        function shareToTwitter() {
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+            window.open(url, '_blank');
+        }
+
+        function shareToFacebook() {
+            const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+            window.open(url, '_blank');
+        }
+
+        function copyWebsiteLink() {
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                showToast("Link copied to clipboard!");
+            }).catch(() => {
+                showToast("Failed to copy link.");
+            });
+        }
+
+        function nativeShare() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Noon Minutes – The Ice Cream Project',
+                    text: shareText,
+                    url: shareUrl,
+                }).catch(() => {});
+            } else {
+                copyWebsiteLink();
+            }
+        }
+
+        function shareQuizResult() {
+            const resultFlavor = document.getElementById('resultFlavorName').innerText;
+            const quizShareText = `I took the Personality Quiz on Noon Minutes and my Ice Cream Project vibe is ${resultFlavor}! Take the test & try the #ShattaFreezeChallenge: ${shareUrl}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My Ice Cream Project Result',
+                    text: quizShareText,
+                    url: shareUrl,
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(quizShareText).then(() => {
+                    showToast("Quiz result copied to clipboard to share!");
+                });
+            }
+        }
+    </script>
+</body>
+</html>
